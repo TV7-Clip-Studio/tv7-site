@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionWrapper from '../components/SectionWrapper.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import GlowPanel from '../components/GlowPanel.astro';
+
+const featureGroups = [
+  {
+    label: 'Clipping Engine',
+    items: [
+      { title: 'Beat detection', description: 'Auto-detects high-energy beats, reactions, and speaker emphasis for perfect hooks.' },
+      { title: 'Moments map', description: 'Visualize peaks, pauses, and transitions to jump straight to the best seconds.' },
+      { title: 'Scene-aware cuts', description: 'Understands camera switches and screen shares to keep context intact.' },
+    ],
+  },
+  {
+    label: 'Timeline',
+    items: [
+      { title: 'Snappy trims', description: 'Fast scrubbing with frame-level accuracy and ripple-free edits.' },
+      { title: 'Templates', description: 'Reusable caption, lower-third, and overlay stacks for every client or channel.' },
+      { title: 'Versioning', description: 'Save variants for TikTok, Reels, and YouTube Shorts without rebuilding.' },
+    ],
+  },
+  {
+    label: 'Publishing',
+    items: [
+      { title: 'Social queues', description: 'Send exports directly to your scheduler or download locally.' },
+      { title: 'Caption burn-in', description: 'On-brand captions with drop shadows and safe-area guides baked in.' },
+      { title: 'Analytics-ready', description: 'Export clips with metadata for A/B testing titles and hooks.' },
+    ],
+  },
+];
+
+const comparison = [
+  { label: 'Setup time', tv7: 'Minutes. No cloud uploads.', editors: 'Long installs, plug-ins, media management.' },
+  { label: 'Highlight discovery', tv7: 'AI pulls segments automatically.', editors: 'Manual scrubbing and markers.' },
+  { label: 'Captioning', tv7: 'One-click branded templates.', editors: 'Multiple exports and round-trips.' },
+  { label: 'Exports', tv7: 'Vertical, square, and landscape in one pass.', editors: 'One timeline at a time.' },
+];
+---
+
+<BaseLayout title="Features — TV7 Clip Studio" description="Explore TV7's AI clipping, captions, exports, and publishing pipeline.">
+  <SectionWrapper>
+    <SectionHeader
+      eyebrow="Features"
+      title="Deep controls, minimal friction"
+      description="Everything in TV7 is tuned for fast-turn clips without the heavyweight NLE overhead."
+      align="center"
+    />
+
+    <div class="space-y-8">
+      {featureGroups.map((group) => (
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <span class="h-10 w-10 rounded-xl border border-tv7-cyan/40 bg-tv7-cyan/10 text-tv7-cyan flex items-center justify-center text-sm font-semibold">
+              {group.label.split(' ').map((word) => word[0]).join('')}
+            </span>
+            <h3 class="text-xl font-semibold text-slate-100">{group.label}</h3>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {group.items.map((item) => (
+              <FeatureCard title={item.title} description={item.description} />
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </SectionWrapper>
+
+  <SectionWrapper>
+    <SectionHeader
+      eyebrow="Comparison"
+      title="TV7 vs traditional editors"
+      description="A streamlined pipeline built for clipping and repurposing."
+    />
+    <div class="overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-950/70">
+      <div class="grid grid-cols-3 border-b border-slate-800 text-xs uppercase tracking-[0.2em] text-slate-400">
+        <div class="px-4 py-3">Aspect</div>
+        <div class="px-4 py-3 text-tv7-cyan">TV7</div>
+        <div class="px-4 py-3 text-slate-200">Traditional NLE</div>
+      </div>
+      {comparison.map((row, idx) => (
+        <div class={`grid grid-cols-3 text-sm ${idx !== comparison.length - 1 ? 'border-b border-slate-900/70' : ''}`}>
+          <div class="px-4 py-3 text-slate-300">{row.label}</div>
+          <div class="px-4 py-3 text-slate-100 bg-tv7-cyan/5">{row.tv7}</div>
+          <div class="px-4 py-3 text-slate-400">{row.editors}</div>
+        </div>
+      ))}
+    </div>
+  </SectionWrapper>
+
+  <SectionWrapper spacing="tight">
+    <GlowPanel class="p-8 flex flex-col gap-4 items-start">
+      <p class="text-xs uppercase tracking-[0.3em] text-tv7-cyan">Why it matters</p>
+      <h3 class="text-2xl sm:text-3xl font-display uppercase tracking-[0.12em] text-slate-50">
+        From raw footage to ready-to-post clips in one tool.
+      </h3>
+      <p class="max-w-3xl text-slate-300">
+        TV7 keeps everything on-device, automates the boring steps, and gives you the fast controls you expect from a pro
+        editor—without the overhead.
+      </p>
+      <a
+        href="/downloads"
+        class="inline-flex items-center justify-center rounded-full bg-tv7-cyan px-5 py-3 text-sm font-semibold text-slate-900 shadow-cyan-strong transition hover:-translate-y-[1px]"
+      >
+        Download TV7
+      </a>
+    </GlowPanel>
+  </SectionWrapper>
+</BaseLayout>

@@ -1,0 +1,81 @@
+---
+import Navbar from '../components/Navbar.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'TV7 — Clip Studio',
+  description = 'AI-powered video clipping and repurposing for creators and teams.',
+} = Astro.props as Props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/logo-tv7.png" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-tv7-bg text-tv7-text-primary min-h-screen relative">
+    <div class="pointer-events-none fixed inset-0 opacity-20">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(0,229,255,0.08),transparent_30%)]"></div>
+    </div>
+
+    <header class="sticky top-0 z-40">
+      <div class="border-b border-tv7-border bg-tv7-surface/90 backdrop-blur-xl">
+        <div class="mx-auto flex max-w-6xl flex-col px-4 sm:px-6 lg:px-8">
+          <Navbar />
+        </div>
+      </div>
+    </header>
+
+    <!-- Scroll progress indicator -->
+    <div class="fixed top-0 left-0 right-0 h-1 bg-tv7-border z-50">
+      <div id="scroll-progress" class="h-full bg-gradient-to-r from-tv7-cyan to-tv7-violet transition-all duration-150" style="width: 0%"></div>
+    </div>
+
+    <main class="relative z-10 mx-auto flex w-full max-w-6xl flex-col px-4 sm:px-6 lg:px-8 pt-10 pb-16">
+      <slot />
+    </main>
+
+    <footer class="relative z-10 border-t-2 border-t-tv7-cyan/20 bg-tv7-surface/60 backdrop-blur">
+      <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-8 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+        <div class="flex items-center gap-3">
+          <img src="/logo-tv7.png" alt="TV7 logo" class="h-8 w-auto rounded-md" />
+          <div>
+            <p class="font-semibold text-slate-200">TV7 — Clip Studio</p>
+            <p class="text-xs text-slate-500">AI clips at the speed of thought.</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-4">
+          <a href="/docs" class="hover:text-tv7-cyan transition">Docs</a>
+          <a href="/faq" class="hover:text-tv7-cyan transition">FAQ</a>
+          <a href="/downloads" class="hover:text-tv7-cyan transition">Download</a>
+          <div class="flex items-center gap-3">
+            <a href="#" class="hover:text-tv7-cyan transition">X</a>
+            <a href="#" class="hover:text-tv7-cyan transition">YouTube</a>
+            <a href="#" class="hover:text-tv7-cyan transition">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      window.addEventListener('scroll', () => {
+        const scrollProgress = document.getElementById('scroll-progress');
+        if (scrollProgress) {
+          const winScroll = document.documentElement.scrollTop;
+          const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          const scrolled = (winScroll / height) * 100;
+          scrollProgress.style.width = scrolled + '%';
+        }
+      });
+    </script>
+  </body>
+</html>
