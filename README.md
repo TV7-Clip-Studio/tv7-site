@@ -1,43 +1,36 @@
-# Astro Starter Kit: Minimal
+# TV7 — Clip Studio Marketing Site
 
-```sh
-npm create astro@latest -- --template minimal
+Astro + Tailwind site for TV7, the AI-powered desktop app for video clipping and repurposing. Dark-only, neon-accent aesthetic with reusable components and data-driven sections.
+
+## Quickstart
+
+```bash
+npm install
+npm run dev   # http://localhost:4321
+npm run build # outputs to dist/
+npm run preview
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Structure
 
-## 🚀 Project Structure
+- `src/layouts/BaseLayout.astro` — global HTML shell with navbar/footer, dark mode enabled.
+- `src/components/` — Navbar, Hero, section helpers, cards (features, pricing, downloads, FAQ), glow panel.
+- `src/pages/` — landing plus Features, How it Works, Pricing, Downloads, FAQ, Docs routes.
+- `src/styles/global.css` — Tailwind imports, Google Fonts (Orbitron + Inter), glow utilities.
+- `tailwind.config.js` — darkMode `class`, TV7 colors (`bg #00010A`, cyan `#00E5FF`, violet `#7A5CFF`, panel neutrals), fonts, glow shadows.
+- `public/logo-tv7.png` — drop logo/mockups here; files are served statically.
 
-Inside of your Astro project, you'll see the following folders and files:
+## Development Notes
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- Tech stack: Astro SSG + Tailwind CSS (PostCSS, JIT), TypeScript-friendly components.
+- Global layout sets `class="dark"` on `<html>` and uses max-width containers for content.
+- Accent usage: cyan for primary CTAs and borders, violet as secondary glow.
+- Mobile: sticky nav with hamburger, stacked hero, responsive grids on all sections.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Deploy
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Build the static site with `npm run build` and deploy the `dist/` output to any static host (Netlify, Vercel, S3, etc.). No runtime services required beyond Google Fonts.
 
-Any static assets, like images, can be placed in the `public/` directory.
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Agent Prompt
+Check this website. understand what it is, and what is it part for (check docs in same root folder, you have the flutter-tv7 and fastapi-t7) I am working on all three projects. You are the astro agent, responsible for the public astro website

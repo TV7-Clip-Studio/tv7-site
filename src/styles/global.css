@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-tv7-bg text-tv7-text-primary font-sans antialiased;
+}
+
+.glow-panel {
+  @apply bg-tv7-surface/80 border border-tv7-border shadow-panel rounded-xl backdrop-blur-sm;
+}
+
+.neon-divider {
+  @apply bg-gradient-to-r from-tv7-cyan/60 via-tv7-violet/60 to-tv7-cyan/60 h-px w-full;
+}
+
+.hero-backdrop {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(0, 229, 255, 0.14), transparent 25%),
+    radial-gradient(circle at 80% 30%, rgba(122, 92, 255, 0.18), transparent 30%),
+    radial-gradient(circle at 50% 60%, rgba(0, 229, 255, 0.12), transparent 32%);
+}
+
+/* Prevent FOUC on CTA buttons */
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-tv7-cyan px-5 py-3 text-base font-semibold text-slate-900 shadow-accent-subtle transition;
+}
+
+.btn-primary:hover {
+  @apply shadow-accent-hover -translate-y-[1px] bg-tv7-cyanSoft;
+}

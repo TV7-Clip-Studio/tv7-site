@@ -1,0 +1,48 @@
+---
+interface Props {
+  name: string;
+  price: string;
+  description?: string;
+  features: string[];
+  highlighted?: boolean;
+}
+
+const { name, price, description, features, highlighted = false } = Astro.props as Props;
+---
+
+<div
+  class={`glow-panel relative flex h-full flex-col gap-6 p-6 ${
+    highlighted ? 'border-tv7-cyan/70 shadow-cyan-strong' : ''
+  }`}
+>
+  {highlighted && (
+    <div class="absolute -top-3 right-4 rounded-full bg-tv7-cyan/90 px-3 py-1 text-xs font-semibold text-slate-900">
+      Most Popular
+    </div>
+  )}
+  <div class="flex items-center justify-between">
+    <h3 class="text-xl font-semibold text-slate-100">{name}</h3>
+    <span class="text-3xl font-display tracking-[0.08em] text-tv7-cyan">{price}</span>
+  </div>
+  {description && <p class="text-sm text-slate-300">{description}</p>}
+  <ul class="flex flex-col gap-3 text-sm text-slate-200">
+    {features.map((feature) => (
+      <li class="flex items-start gap-2">
+        <span class="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-tv7-cyan/15 text-tv7-cyan text-xs">
+          ✓
+        </span>
+        <span>{feature}</span>
+      </li>
+    ))}
+  </ul>
+  <a
+    href="/downloads"
+    class={`mt-auto inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold transition ${
+      highlighted
+        ? 'bg-tv7-cyan text-slate-900 shadow-cyan-strong hover:-translate-y-[1px]'
+        : 'border border-slate-700 text-slate-100 hover:border-tv7-cyan/70'
+    }`}
+  >
+    Choose Plan
+  </a>
+</div>

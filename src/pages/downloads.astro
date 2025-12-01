@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionWrapper from '../components/SectionWrapper.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import DownloadCard from '../components/DownloadCard.astro';
+import GlowPanel from '../components/GlowPanel.astro';
+
+const downloads = [
+  { os: 'Windows', description: '64-bit, supports Windows 11 and Windows 10 (latest).', badge: 'v0.9 Beta' },
+  { os: 'macOS (Apple Silicon)', description: 'macOS 13 Ventura and above, tuned for M-series.', badge: 'Recommended' },
+  { os: 'Linux', description: 'Planned support. Join the waitlist to be notified.', badge: 'Coming soon', action: 'Join waitlist' },
+];
+---
+
+<BaseLayout title="Downloads — TV7 Clip Studio" description="Get the latest TV7 desktop build for your OS.">
+  <SectionWrapper>
+    <SectionHeader
+      eyebrow="Downloads"
+      title="Install TV7 on desktop"
+      description="Local-first clipping means everything runs on your machine. Choose your OS to get started."
+    />
+    <div class="grid gap-6 md:grid-cols-3">
+      {downloads.map((item) => (
+        <DownloadCard os={item.os} description={item.description} badge={item.badge} action={item.action ?? 'Download'} />
+      ))}
+    </div>
+  </SectionWrapper>
+
+  <SectionWrapper spacing="tight">
+    <div class="grid gap-6 md:grid-cols-2">
+      <GlowPanel class="p-6">
+        <h3 class="text-xl font-semibold text-slate-100 mb-3">System requirements</h3>
+        <ul class="space-y-2 text-sm text-slate-300">
+          <li>• 8GB RAM minimum (16GB recommended for batch clips)</li>
+          <li>• GPU acceleration preferred for caption rendering</li>
+          <li>• 2GB disk space for app + model cache</li>
+          <li>• Optional: internet for updates and sharing exports</li>
+        </ul>
+      </GlowPanel>
+      <GlowPanel class="p-6">
+        <h3 class="text-xl font-semibold text-slate-100 mb-3">Getting started</h3>
+        <ol class="space-y-2 text-sm text-slate-300 list-decimal list-inside">
+          <li>Install and open TV7, then drag your first recording into the workspace.</li>
+          <li>Pick a caption template and output formats (vertical, square, landscape).</li>
+          <li>Review AI-suggested highlights, adjust trims, and export to your queue.</li>
+        </ol>
+      </GlowPanel>
+    </div>
+  </SectionWrapper>
+</BaseLayout>

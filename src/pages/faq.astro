@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionWrapper from '../components/SectionWrapper.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import FAQItem from '../components/FAQItem.astro';
+
+const faqs = [
+  { question: 'Does TV7 process locally or in the cloud?', answer: 'Everything processes locally on your desktop. Clips, captions, and transcripts stay on your machine unless you export them.' },
+  { question: 'Do I need internet to clip?', answer: 'No. Internet is only required for downloading builds, updates, and sharing exports to connected platforms.' },
+  { question: 'Which platforms are supported?', answer: 'Windows 10/11 and macOS Ventura+ (Apple Silicon). Linux support is planned—join the waitlist on the Downloads page.' },
+  { question: 'Is my footage secure?', answer: 'Yes. Local processing means your source media never leaves your device. You control exports and sharing destinations.' },
+  { question: 'Can I import long-form podcasts?', answer: 'Absolutely. TV7 is optimized for long-form recordings and will surface the strongest clips automatically.' },
+  { question: 'Does TV7 handle captions?', answer: 'Yes. You get accurate transcripts and on-brand caption templates with drop shadows, safe areas, and adjustable speeds.' },
+  { question: 'Can teams share templates?', answer: 'Studio plans include shared style presets, so agencies and teams stay consistent across clients and channels.' },
+  { question: 'What export formats are available?', answer: 'Vertical (9:16), square (1:1), and landscape (16:9) in MP4 with high-quality H.264/H.265 options.' },
+  { question: 'Does TV7 support custom fonts?', answer: 'Yes. Upload your brand fonts for captions and overlays to keep everything on-brand.' },
+  { question: 'How does the AI find highlights?', answer: 'Models analyze speaker emphasis, reactions, peaks in energy, and keywords to suggest clips between 15–120 seconds.' },
+  { question: 'Will TV7 slow down my computer?', answer: 'Processing is GPU-accelerated when available. You can cap resource usage in preferences to keep your machine responsive.' },
+  { question: 'What’s on the roadmap?', answer: 'Multi-track audio support, deeper scheduler integrations, and collaborative review links are coming soon.' },
+];
+---
+
+<BaseLayout title="FAQ — TV7 Clip Studio" description="Answers to common questions about TV7.">
+  <SectionWrapper>
+    <SectionHeader
+      eyebrow="FAQ"
+      title="Frequently asked questions"
+      description="Answers to the most common TV7 questions from creators, editors, and teams."
+      align="center"
+    />
+    <div class="grid gap-4">
+      {faqs.map((item) => (
+        <FAQItem question={item.question} answer={item.answer} />
+      ))}
+    </div>
+  </SectionWrapper>
+</BaseLayout>

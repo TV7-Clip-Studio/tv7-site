@@ -1,0 +1,16 @@
+---
+interface Props {
+  id?: string;
+  class?: string;
+  spacing?: 'tight' | 'normal' | 'loose';
+}
+
+const { id, class: className = '', spacing = 'normal' } = Astro.props as Props;
+
+const spacingClass =
+  spacing === 'tight' ? 'py-10 sm:py-12' : spacing === 'loose' ? 'py-20 sm:py-24' : 'py-16 sm:py-20';
+---
+
+<section id={id} class={`relative ${spacingClass} ${className}`}>
+  <slot />
+</section>
