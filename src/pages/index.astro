@@ -11,6 +11,7 @@ const featureHighlights = [
   { title: 'Auto-Clipping', description: 'Drop a long video and let TV7 surface highlight-worthy beats instantly.' },
   { title: 'Smart Highlights', description: 'AI detects reactions, peaks, and quotable lines for faster storytelling.' },
   { title: 'Subtitles & Transcripts', description: 'Accurate captions with on-brand templates ready for every export.' },
+  { title: 'Integrated Posts Editor', description: 'Fine-tune captions, adjust aspect ratios, and customize every clip before export—all in one workspace.' },
   { title: 'Social-Ready Exports', description: 'Landscape, square, and vertical renders optimized for every platform.' },
 ];
 
@@ -24,7 +25,7 @@ const miniFaq = [
 <BaseLayout title="TV7 — Clip Studio" description="AI-powered video clipping and repurposing desktop app.">
   <Hero
     headline="Clips at the speed of thought."
-    subheadline="TV7 is the local-first desktop studio that turns hour-long recordings into social-ready clips in minutes."
+    subheadline="TV7 is the local-first desktop studio that turns YouTube videos and long recordings into social-ready clips in minutes—with full editing control."
     primaryLabel="Download for Desktop"
     secondaryLabel="Watch Demo"
   />
@@ -46,16 +47,18 @@ const miniFaq = [
     <SectionHeader
       eyebrow="Pipeline"
       title="How it works"
-      description="Three streamlined steps from raw recording to published clips."
+      description="Five streamlined steps from YouTube link to published clips."
     />
-    <div class="grid gap-6 md:grid-cols-3">
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {[
-        { step: '01', title: 'Drop a long video', text: 'Import MP4, MOV, or stream recordings from your drive.' },
-        { step: '02', title: 'AI finds highlights', text: 'Detects momentum shifts, speakers, and quotable segments.' },
-        { step: '03', title: 'Export shorts', text: 'Send vertical cuts with captions straight to your social queue.' },
+        { step: '01', title: 'Import your content', text: 'Paste a YouTube link or drop MP4/MOV files from your drive.' },
+        { step: '02', title: 'Automatic transcription', text: 'AI generates accurate subtitles and full transcripts instantly.' },
+        { step: '03', title: 'AI finds highlights', text: 'Detects momentum shifts, speakers, and quotable segments.' },
+        { step: '04', title: 'Edit social posts', text: 'Customize captions, formats, and copy in the integrated posts editor.' },
+        { step: '05', title: 'Export shorts', text: 'Send vertical cuts with captions straight to your social queue.' },
       ].map((item, index) => (
         <div class="relative">
-          {index < 2 && <span class="absolute right-[-24px] top-6 hidden h-[2px] w-12 bg-gradient-to-r from-tv7-amber to-tv7-cyan md:inline" />}
+          {index < 4 && <span class="absolute right-[-24px] top-6 hidden h-[2px] w-12 bg-gradient-to-r from-tv7-amber to-tv7-cyan lg:inline" />}
           <GlowPanel class="p-6 h-full border-l-2 border-l-tv7-amber">
             <div class="mb-3 flex items-center gap-2">
               <span class="rounded-full bg-tv7-amber/15 px-3 py-1 text-xs font-semibold text-tv7-amber border border-tv7-amber/30">
