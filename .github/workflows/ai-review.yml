@@ -1,0 +1,50 @@
+name: AI Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  determine-context:
+    runs-on: ubuntu-latest
+    outputs:
+      info: ${{ steps.context.outputs.info }}
+    steps:
+      - name: Determine Astro/Node context
+        id: context
+        run: |
+          set -eo pipefail
+          node -v >/dev/null 2>&1
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+import json
+from pathlib import Path
+
+pkg = Path("package.json")
+info = "General Codebase"
+
+if pkg.exists():
+    data = json.loads(pkg.read_text(encoding="utf-8"))
+    node_version = data.get("engines", {}).get("node") or data.get("packageManager") or "unknown"
+    deps = data.get("dependencies", {})
+    dev = data.get("devDependencies", {})
+    key = []
+    for name, val in list(deps.items()) + list(dev.items()):
+        if len(key) >= 4:
+            break
+        key.append(f"{name} {val}")
+    info = f"Node {node_version}; key deps: {', '.join(key) if key else 'n/a'} (package.json)"
+
+print(f"info={info}")
+PY
+
+  deepseek-review:
+    needs: determine-context
+    uses: TV7-Clip-Studio/tv7-core/.github/workflows/deepseek-review.yml@main
+    with:
+      project_context: ${{ needs.determine-context.outputs.info }}
+    secrets: inherit
