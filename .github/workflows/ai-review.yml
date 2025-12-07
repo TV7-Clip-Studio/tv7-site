@@ -1,0 +1,63 @@
+name: AI Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  determine-context:
+    runs-on: ubuntu-latest
+    outputs:
+      info: ${{ steps.context.outputs.info }}
+    steps:
+      - name: Determine Astro/Node context
+        id: context
+        run: |
+          set -eo pipefail
+          node -v >/dev/null 2>&1 || true
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          from pathlib import Path
+
+          pkg = Path("package.json")
+          info = "General Codebase"
+
+          if pkg.exists():
+              try:
+                  data = json.loads(pkg.read_text(encoding="utf-8"))
+              except Exception:
+                  print("info=Node project: package.json unreadable")
+              else:
+                  engines_node = data.get("engines", {}).get("node")
+                  package_manager = data.get("packageManager")
+                  node_version = engines_node or "unknown"
+                  pm_version = package_manager or "unknown"
+
+                  deps = data.get("dependencies", {})
+                  dev = data.get("devDependencies", {})
+                  key = []
+                  for name, val in list(deps.items()) + list(dev.items()):
+                      if len(key) >= 4:
+                          break
+                      key.append(f"{name} {val}")
+
+                  info = f"Node {node_version}; packageManager {pm_version}; key deps: {', '.join(key) if key else 'n/a'} (package.json)"
+
+          print(f"info={info}")
+          PY
+
+  deepseek-review:
+    needs: determine-context
+    uses: TV7-Clip-Studio/tv7-core/.github/workflows/deepseek-review.yml@main
+    with:
+      project_context: ${{ needs.determine-context.outputs.info }}
+    secrets: inherit
