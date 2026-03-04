@@ -1,4 +1,6 @@
 ---
+import GlowPanel from './GlowPanel.astro';
+
 interface Props {
   title: string;
   description: string;
@@ -8,12 +10,12 @@ interface Props {
 const { title, description, icon } = Astro.props as Props;
 ---
 
-<div class="glow-panel h-full p-6 flex flex-col gap-4 transition duration-200 hover:border-tv7-cyan/30 hover:shadow-[0_0_20px_rgba(0,229,255,0.15)] hover:-translate-y-0.5 border-l-2 border-l-tv7-amber group">
+<GlowPanel class="group h-full border-l-2 border-l-tv7-amber p-6 transition duration-200 hover:-mt-0.5 hover:border-tv7-cyan/30 hover:shadow-[0_0_20px_rgba(0,229,255,0.15)]">
   <div class="flex items-center gap-3">
     <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-tv7-surface border border-tv7-borderStrong text-tv7-cyan transition-all duration-200 group-hover:border-tv7-cyan/50 group-hover:shadow-[0_0_12px_rgba(0,229,255,0.2)]">
       {icon || '✦'}
     </div>
-    <h3 class="text-lg font-semibold text-tv7-text-primary">{title}</h3>
+    <h3 class="text-lg font-display font-semibold text-tv7-text-primary">{title}</h3>
   </div>
   <p class="text-sm leading-relaxed text-tv7-text-secondary">{description}</p>
-</div>
+</GlowPanel>

@@ -29,9 +29,9 @@ body {
 
 /* Prevent FOUC on CTA buttons */
 .btn-primary {
-  @apply inline-flex items-center justify-center gap-2 rounded-full bg-tv7-cyan px-5 py-3 text-base font-semibold text-slate-900 shadow-accent-subtle transition;
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-tv7-cyan px-5 py-3 text-base font-semibold text-tv7-bg shadow-accent-subtle transition;
 }
 
 .btn-primary:hover {
-  @apply shadow-accent-hover -translate-y-[1px] bg-tv7-cyanSoft;
+  @apply -mt-px bg-tv7-cyanSoft shadow-accent-hover;
 }
