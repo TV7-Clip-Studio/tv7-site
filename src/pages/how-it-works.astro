@@ -34,25 +34,25 @@ const steps = [
     />
     <div class="space-y-6">
       {steps.map((step, idx) => (
-        <div class={`overflow-hidden rounded-2xl border border-slate-800/80 ${idx % 2 === 0 ? 'bg-slate-950/70' : 'bg-slate-900/60'}`}>
+        <GlowPanel class={`overflow-hidden rounded-2xl p-0 ${idx % 2 === 0 ? 'bg-tv7-bgSecondary/70' : 'bg-tv7-surface/60'}`}>
           <div class="flex flex-col gap-6 md:flex-row md:items-center md:gap-10 p-6 sm:p-8">
             <div class="md:w-1/2 space-y-3">
               <p class="text-xs uppercase tracking-[0.3em] text-tv7-cyan flex items-center gap-2">
                 <span class="h-6 w-1 rounded-full bg-gradient-to-b from-tv7-cyan to-tv7-violet"></span>
                 Step {idx + 1}
               </p>
-              <h3 class="text-2xl font-semibold text-slate-50">{step.title}</h3>
-              <p class="text-slate-300 text-sm">{step.description}</p>
+              <h3 class="text-2xl font-display font-semibold text-tv7-text-primary">{step.title}</h3>
+              <p class="text-sm text-tv7-text-secondary">{step.description}</p>
             </div>
             <div class="md:w-1/2">
               <GlowPanel class="h-full p-6 border-tv7-cyan/20">
-                <div class="h-40 w-full rounded-xl border border-slate-800/70 bg-gradient-to-br from-tv7-cyan/10 via-slate-900 to-tv7-violet/10 shadow-inner"></div>
-                <p class="mt-4 text-xs uppercase tracking-[0.2em] text-slate-400">Preview</p>
-                <p class="text-sm text-slate-200">Visual placeholder for {step.title} UI.</p>
+                <div class="h-40 w-full rounded-xl border border-tv7-border bg-gradient-to-br from-tv7-cyan/10 via-tv7-bgSecondary to-tv7-violet/10 shadow-inner"></div>
+                <p class="mt-4 text-xs uppercase tracking-[0.2em] text-tv7-text-tertiary">Preview</p>
+                <p class="text-sm text-tv7-text-primary">Visual placeholder for {step.title} UI.</p>
               </GlowPanel>
             </div>
           </div>
-        </div>
+        </GlowPanel>
       ))}
     </div>
   </SectionWrapper>
@@ -64,7 +64,7 @@ const steps = [
       description="A linear path keeps edits predictable and exports reliable."
       align="center"
     />
-    <div class="glow-panel p-6">
+    <GlowPanel class="p-6">
       <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         {[
           { label: 'Input', detail: 'Long recording' },
@@ -73,10 +73,10 @@ const steps = [
           { label: 'Publish', detail: 'Queues & downloads' },
         ].map((stage, idx, arr) => (
           <div class="flex items-center gap-3 md:gap-4">
-            <div class="flex h-14 w-14 items-center justify-center rounded-2xl border border-tv7-cyan/30 bg-tv7-cyan/10 text-center text-xs font-semibold text-slate-100">
+            <div class="flex h-14 w-14 items-center justify-center rounded-2xl border border-tv7-cyan/30 bg-tv7-cyan/10 text-center text-xs font-semibold text-tv7-text-primary">
               <div>
                 <p class="text-[10px] uppercase tracking-[0.25em] text-tv7-cyan">{stage.label}</p>
-                <p class="text-[11px] text-slate-200">{stage.detail}</p>
+                <p class="text-[11px] text-tv7-text-primary">{stage.detail}</p>
               </div>
             </div>
             {idx < arr.length - 1 && (
@@ -88,6 +88,6 @@ const steps = [
           </div>
         ))}
       </div>
-    </div>
+    </GlowPanel>
   </SectionWrapper>
 </BaseLayout>

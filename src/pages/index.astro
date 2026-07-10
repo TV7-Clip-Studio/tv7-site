@@ -66,7 +66,7 @@ const miniFaq = [
               </span>
               <p class="text-sm uppercase tracking-wider text-tv7-text-tertiary">Step</p>
             </div>
-            <h3 class="text-xl font-semibold text-tv7-text-primary mb-2">{item.title}</h3>
+            <h3 class="mb-2 text-xl font-display font-semibold text-tv7-text-primary">{item.title}</h3>
             <p class="text-sm text-tv7-text-secondary">{item.text}</p>
           </GlowPanel>
         </div>
@@ -92,7 +92,7 @@ const miniFaq = [
         },
       ].map((useCase) => (
         <GlowPanel class="p-6 border-l-2 border-l-tv7-amber">
-          <h3 class="text-xl font-semibold text-tv7-text-primary mb-3">{useCase.title}</h3>
+          <h3 class="mb-3 text-xl font-display font-semibold text-tv7-text-primary">{useCase.title}</h3>
           <ul class="space-y-3 text-tv7-text-secondary text-sm">
             {useCase.bullets.map((bullet) => (
               <li class="flex items-start gap-3">
@@ -121,20 +121,22 @@ const miniFaq = [
   </SectionWrapper>
 
   <SectionWrapper spacing="tight">
-    <div class="relative overflow-hidden rounded-2xl border-2 border-tv7-borderStrong bg-gradient-to-r from-tv7-surface/80 via-tv7-bgSecondary/80 to-tv7-surface/80 px-6 py-10 shadow-xl">
+    <SectionHeader
+      eyebrow="CTA"
+      title="Ready to repurpose faster?"
+      description="Join early access to get desktop builds, templates, and the latest clipping models."
+      align="center"
+    />
+    <GlowPanel class="relative overflow-hidden rounded-2xl border-2 border-tv7-borderStrong bg-gradient-to-r from-tv7-surface/80 via-tv7-bgSecondary/80 to-tv7-surface/80 px-6 py-10 shadow-xl">
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(245,158,11,0.08),transparent_40%)] opacity-60"></div>
       <div class="relative flex flex-col items-center gap-4 text-center">
-        <h3 class="text-2xl sm:text-3xl font-display tracking-tight text-tv7-text-primary">Ready to repurpose faster?</h3>
-        <p class="max-w-2xl text-tv7-text-secondary">
-          Join early access to get desktop builds, templates, and the latest clipping models.
-        </p>
         <a
           href="/downloads"
-          class="inline-flex items-center justify-center rounded-full bg-tv7-cyan px-6 py-3 text-base font-semibold text-slate-900 shadow-accent-subtle hover:shadow-accent-hover transition hover:-translate-y-[1px] hover:bg-tv7-cyanSoft"
+          class="btn-primary px-6 py-3"
         >
           Get Early Access
         </a>
       </div>
-    </div>
+    </GlowPanel>
   </SectionWrapper>
 </BaseLayout>

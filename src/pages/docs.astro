@@ -14,7 +14,7 @@ import GlowPanel from '../components/GlowPanel.astro';
       align="center"
     />
     <GlowPanel class="p-6">
-      <h3 class="text-lg font-semibold text-slate-100 mb-3">Jump to a section</h3>
+      <h3 class="mb-3 text-lg font-display font-semibold text-tv7-text-primary">Jump to a section</h3>
       <div class="flex flex-wrap gap-3 text-sm text-tv7-cyan">
         <a href="#installation" class="hover:text-tv7-violet transition">Installation</a>
         <a href="#shortcuts" class="hover:text-tv7-violet transition">Shortcuts</a>
@@ -25,40 +25,48 @@ import GlowPanel from '../components/GlowPanel.astro';
   </SectionWrapper>
 
   <SectionWrapper id="installation" spacing="tight">
-    <h3 class="text-2xl font-semibold text-slate-50 mb-3">Installation</h3>
-    <p class="text-slate-300 mb-3 text-sm">Download the latest build from the Downloads page.</p>
-    <pre class="overflow-x-auto rounded-xl border border-slate-800/80 bg-slate-900/70 p-4 text-sm text-slate-200">
+    <SectionHeader title="Installation" />
+    <GlowPanel class="p-6">
+      <p class="mb-3 text-sm text-tv7-text-secondary">Download the latest build from the Downloads page.</p>
+      <pre class="overflow-x-auto rounded-xl border border-tv7-border bg-tv7-bgSecondary p-4 text-sm text-tv7-text-secondary">
 macOS: drag TV7 into Applications
 Windows: run the installer and follow the prompts</pre>
-    <p class="text-sm text-slate-400 mt-2">Tip: Allow GPU access for fastest exports and caption rendering.</p>
+      <p class="mt-2 text-sm text-tv7-text-tertiary">Tip: Allow GPU access for fastest exports and caption rendering.</p>
+    </GlowPanel>
   </SectionWrapper>
 
   <SectionWrapper id="shortcuts" spacing="tight">
-    <h3 class="text-2xl font-semibold text-slate-50 mb-3">Shortcuts</h3>
-    <ul class="space-y-2 text-sm text-slate-300">
-      <li><span class="text-tv7-cyan font-semibold">Space</span> — Play / pause</li>
-      <li><span class="text-tv7-cyan font-semibold">J / K / L</span> — Shuttle playback</li>
-      <li><span class="text-tv7-cyan font-semibold">M</span> — Add marker</li>
-      <li><span class="text-tv7-cyan font-semibold">Shift + S</span> — Create new clip from selection</li>
-      <li><span class="text-tv7-cyan font-semibold">Cmd/Ctrl + E</span> — Export selected clips</li>
-    </ul>
+    <SectionHeader title="Shortcuts" />
+    <GlowPanel class="p-6">
+      <ul class="space-y-2 text-sm text-tv7-text-secondary">
+        <li><span class="font-semibold text-tv7-cyan">Space</span> — Play / pause</li>
+        <li><span class="font-semibold text-tv7-cyan">J / K / L</span> — Shuttle playback</li>
+        <li><span class="font-semibold text-tv7-cyan">M</span> — Add marker</li>
+        <li><span class="font-semibold text-tv7-cyan">Shift + S</span> — Create new clip from selection</li>
+        <li><span class="font-semibold text-tv7-cyan">Cmd/Ctrl + E</span> — Export selected clips</li>
+      </ul>
+    </GlowPanel>
   </SectionWrapper>
 
   <SectionWrapper id="clipping" spacing="tight">
-    <h3 class="text-2xl font-semibold text-slate-50 mb-3">Clipping tips</h3>
-    <ul class="space-y-2 text-sm text-slate-300">
-      <li>Start with the AI highlight suggestions, then tighten intros to 1.5 seconds.</li>
-      <li>Use templates to keep captions on-brand across every export format.</li>
-      <li>Duplicate clips to test multiple hooks and captions before publishing.</li>
-    </ul>
+    <SectionHeader title="Clipping tips" />
+    <GlowPanel class="p-6">
+      <ul class="space-y-2 text-sm text-tv7-text-secondary">
+        <li>Start with the AI highlight suggestions, then tighten intros to 1.5 seconds.</li>
+        <li>Use templates to keep captions on-brand across every export format.</li>
+        <li>Duplicate clips to test multiple hooks and captions before publishing.</li>
+      </ul>
+    </GlowPanel>
   </SectionWrapper>
 
   <SectionWrapper id="troubleshooting" spacing="tight">
-    <h3 class="text-2xl font-semibold text-slate-50 mb-3">Troubleshooting</h3>
-    <ul class="space-y-2 text-sm text-slate-300">
-      <li>If exports stall, lower the concurrent renders in Settings → Performance.</li>
-      <li>Audio drift? Enable resync in Settings → Audio to re-lock to waveforms.</li>
-      <li>Running hot? Cap GPU usage and close background apps while exporting.</li>
-    </ul>
+    <SectionHeader title="Troubleshooting" />
+    <GlowPanel class="p-6">
+      <ul class="space-y-2 text-sm text-tv7-text-secondary">
+        <li>If exports stall, lower the concurrent renders in Settings → Performance.</li>
+        <li>Audio drift? Enable resync in Settings → Audio to re-lock to waveforms.</li>
+        <li>Running hot? Cap GPU usage and close background apps while exporting.</li>
+      </ul>
+    </GlowPanel>
   </SectionWrapper>
 </BaseLayout>

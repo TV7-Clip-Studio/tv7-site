@@ -56,7 +56,7 @@ const comparison = [
             <span class="h-10 w-10 rounded-xl border border-tv7-cyan/40 bg-tv7-cyan/10 text-tv7-cyan flex items-center justify-center text-sm font-semibold">
               {group.label.split(' ').map((word) => word[0]).join('')}
             </span>
-            <h3 class="text-xl font-semibold text-slate-100">{group.label}</h3>
+            <h3 class="text-xl font-display font-semibold text-tv7-text-primary">{group.label}</h3>
           </div>
           <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {group.items.map((item) => (
@@ -74,35 +74,37 @@ const comparison = [
       title="TV7 vs traditional editors"
       description="A streamlined pipeline built for clipping and repurposing."
     />
-    <div class="overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-950/70">
-      <div class="grid grid-cols-3 border-b border-slate-800 text-xs uppercase tracking-[0.2em] text-slate-400">
+    <GlowPanel class="overflow-hidden rounded-2xl p-0">
+      <div class="grid grid-cols-3 border-b border-tv7-border text-xs uppercase tracking-[0.2em] text-tv7-text-tertiary">
         <div class="px-4 py-3">Aspect</div>
         <div class="px-4 py-3 text-tv7-cyan">TV7</div>
-        <div class="px-4 py-3 text-slate-200">Traditional NLE</div>
+        <div class="px-4 py-3 text-tv7-text-primary">Traditional NLE</div>
       </div>
       {comparison.map((row, idx) => (
-        <div class={`grid grid-cols-3 text-sm ${idx !== comparison.length - 1 ? 'border-b border-slate-900/70' : ''}`}>
-          <div class="px-4 py-3 text-slate-300">{row.label}</div>
-          <div class="px-4 py-3 text-slate-100 bg-tv7-cyan/5">{row.tv7}</div>
-          <div class="px-4 py-3 text-slate-400">{row.editors}</div>
+        <div class={`grid grid-cols-3 text-sm ${idx !== comparison.length - 1 ? 'border-b border-tv7-border/70' : ''}`}>
+          <div class="px-4 py-3 text-tv7-text-secondary">{row.label}</div>
+          <div class="bg-tv7-cyan/5 px-4 py-3 text-tv7-text-primary">{row.tv7}</div>
+          <div class="px-4 py-3 text-tv7-text-tertiary">{row.editors}</div>
         </div>
       ))}
-    </div>
+    </GlowPanel>
   </SectionWrapper>
 
   <SectionWrapper spacing="tight">
+    <SectionHeader
+      eyebrow="Why it matters"
+      title="From raw footage to ready-to-post clips in one tool"
+      description="TV7 keeps everything on-device, automates repetitive work, and preserves pro-level editing control."
+      align="center"
+    />
     <GlowPanel class="p-8 flex flex-col gap-4 items-start">
-      <p class="text-xs uppercase tracking-[0.3em] text-tv7-cyan">Why it matters</p>
-      <h3 class="text-2xl sm:text-3xl font-display uppercase tracking-[0.12em] text-slate-50">
-        From raw footage to ready-to-post clips in one tool.
-      </h3>
-      <p class="max-w-3xl text-slate-300">
+      <p class="max-w-3xl text-tv7-text-secondary">
         TV7 keeps everything on-device, automates the boring steps, and gives you the fast controls you expect from a pro
         editor—without the overhead.
       </p>
       <a
         href="/downloads"
-        class="inline-flex items-center justify-center rounded-full bg-tv7-cyan px-5 py-3 text-sm font-semibold text-slate-900 shadow-cyan-strong transition hover:-translate-y-[1px]"
+        class="btn-primary px-5 py-3 text-sm"
       >
         Download TV7
       </a>
