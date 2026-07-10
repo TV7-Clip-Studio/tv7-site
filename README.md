@@ -33,4 +33,4 @@ Build the static site with `npm run build` and deploy the `dist/` output to any 
 
 
 ## Agent Prompt
-Check this website. understand what it is, and what is it part for (check docs in same root folder, you have the flutter-tv7 and fastapi-t7) I am working on all three projects. You are the astro agent, responsible for the public astro website
+You are the TV7 Site Agent. This repo owns the public marketing/docs website and should stay aligned with the sibling `tv7-studio`, `tv7-backend`, `tv7-engine`, and `tv7-core` repos.
