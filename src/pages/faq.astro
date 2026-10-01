@@ -5,33 +5,20 @@ import SectionHeader from '../components/SectionHeader.astro';
 import FAQItem from '../components/FAQItem.astro';
 
 const faqs = [
-  { question: 'Does TV7 process locally or in the cloud?', answer: 'Everything processes locally on your desktop. Clips, captions, and transcripts stay on your machine unless you export them.' },
-  { question: 'Do I need internet to clip?', answer: 'No. Internet is only required for downloading builds, updates, and sharing exports to connected platforms.' },
-  { question: 'Which platforms are supported?', answer: 'Windows 10/11 and macOS Ventura+ (Apple Silicon). Linux support is planned—join the waitlist on the Downloads page.' },
-  { question: 'Is my footage secure?', answer: 'Yes. Local processing means your source media never leaves your device. You control exports and sharing destinations.' },
-  { question: 'Can I import long-form podcasts?', answer: 'Absolutely. TV7 is optimized for long-form recordings and will surface the strongest clips automatically.' },
-  { question: 'Does TV7 handle captions?', answer: 'Yes. You get accurate transcripts and on-brand caption templates with drop shadows, safe areas, and adjustable speeds.' },
-  { question: 'Can teams share templates?', answer: 'Studio plans include shared style presets, so agencies and teams stay consistent across clients and channels.' },
-  { question: 'What export formats are available?', answer: 'Vertical (9:16), square (1:1), and landscape (16:9) in MP4 with high-quality H.264/H.265 options.' },
-  { question: 'Does TV7 support custom fonts?', answer: 'Yes. Upload your brand fonts for captions and overlays to keep everything on-brand.' },
-  { question: 'How does the AI find highlights?', answer: 'Models analyze speaker emphasis, reactions, peaks in energy, and keywords to suggest clips between 15–120 seconds.' },
-  { question: 'Will TV7 slow down my computer?', answer: 'Processing is GPU-accelerated when available. You can cap resource usage in preferences to keep your machine responsive.' },
-  { question: 'What’s on the roadmap?', answer: 'Multi-track audio support, deeper scheduler integrations, and collaborative review links are coming soon.' },
+  { question: 'Can I download TV7 now?', answer: 'There is no public installer yet. A macOS internal development package has been tested. Windows validation is still ahead.' },
+  { question: 'Where does video processing happen?', answer: 'The current proof imports and renders media in a local Engine. Finished clips reach private cloud storage only after an explicit handoff.' },
+  { question: 'Can I import a YouTube channel?', answer: 'The proof can discover a channel and let you preselect videos. Actual YouTube downloads are not reliable yet and release depends on applicable platform permissions and creator rights.' },
+  { question: 'Does TV7 automatically transcribe and find viral clips?', answer: 'Not yet. The proof accepts a WebVTT transcript and suggests bounded timing ranges. Automatic transcription and quality ranking are planned.' },
+  { question: 'Can I schedule and publish to social networks?', answer: 'You can create a schedule draft after choosing to upload a finished clip. Live publishing to YouTube, Instagram, and TikTok is still being implemented and verified.' },
+  { question: 'Is there a subscription?', answer: 'No public plans or checkout exist yet. Cloud storage and scheduling fees are being designed.' },
 ];
 ---
 
-<BaseLayout title="FAQ — TV7 Clip Studio" description="Answers to common questions about TV7.">
+<BaseLayout title="FAQ — TV7" description="Current answers about the TV7 development proof and roadmap.">
   <SectionWrapper>
-    <SectionHeader
-      eyebrow="FAQ"
-      title="Frequently asked questions"
-      description="Answers to the most common TV7 questions from creators, editors, and teams."
-      align="center"
-    />
+    <SectionHeader eyebrow="FAQ" title="Frequently asked questions" description="What works in the current proof and what remains in development." align="center" />
     <div class="grid gap-4">
-      {faqs.map((item) => (
-        <FAQItem question={item.question} answer={item.answer} />
-      ))}
+      {faqs.map((item) => <FAQItem question={item.question} answer={item.answer} />)}
     </div>
   </SectionWrapper>
 </BaseLayout>

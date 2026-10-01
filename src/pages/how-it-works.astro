@@ -5,89 +5,24 @@ import SectionHeader from '../components/SectionHeader.astro';
 import GlowPanel from '../components/GlowPanel.astro';
 
 const steps = [
-  {
-    title: 'Import and prep',
-    description: 'Drop your recording, choose a template, and select your target platforms.',
-  },
-  {
-    title: 'AI analysis',
-    description: 'TV7 scans for hooks, detects speakers, and surfaces the sharpest highlights automatically.',
-  },
-  {
-    title: 'Refine & caption',
-    description: 'Adjust trims on a lightweight timeline and burn-in branded captions instantly.',
-  },
-  {
-    title: 'Export & publish',
-    description: 'Export vertical, square, and landscape cuts in one pass or push directly to your queue.',
-  },
+  { title: 'Bring a local video', description: 'Import a creator-supplied recording. Channel discovery and preselection are present, but YouTube downloads are not reliable enough for release.' },
+  { title: 'Import captions and review timing', description: 'Add a WebVTT transcript, select a timing candidate, and edit the clip boundaries. Automatic transcription and viral ranking remain planned.' },
+  { title: 'Render on your computer', description: 'The local Rust Engine renders a captioned MP4. Heavy media processing does not run in the cloud Backend.' },
+  { title: 'Choose a cloud handoff', description: 'Optionally upload the finished clip to private storage and create a schedule draft. Drafts do not publish a post.' },
 ];
 ---
 
-<BaseLayout title="How it works — TV7 Clip Studio" description="See the TV7 clipping and publishing pipeline step by step.">
+<BaseLayout title="How it works — TV7" description="How the current TV7 development proof handles local video and optional cloud drafts.">
   <SectionWrapper>
-    <SectionHeader
-      eyebrow="Workflow"
-      title="From drop to publish"
-      description="TV7 keeps the flow simple: load, let AI work, refine lightly, publish everywhere."
-      align="center"
-    />
-    <div class="space-y-6">
+    <SectionHeader eyebrow="Current workflow" title="From local file to schedule draft" description="The current proof reaches a draft. Live social publishing is still in development." align="center" />
+    <div class="grid gap-6 md:grid-cols-2">
       {steps.map((step, idx) => (
-        <GlowPanel class={`overflow-hidden rounded-2xl p-0 ${idx % 2 === 0 ? 'bg-tv7-bgSecondary/70' : 'bg-tv7-surface/60'}`}>
-          <div class="flex flex-col gap-6 md:flex-row md:items-center md:gap-10 p-6 sm:p-8">
-            <div class="md:w-1/2 space-y-3">
-              <p class="text-xs uppercase tracking-[0.3em] text-tv7-cyan flex items-center gap-2">
-                <span class="h-6 w-1 rounded-full bg-gradient-to-b from-tv7-cyan to-tv7-violet"></span>
-                Step {idx + 1}
-              </p>
-              <h3 class="text-2xl font-display font-semibold text-tv7-text-primary">{step.title}</h3>
-              <p class="text-sm text-tv7-text-secondary">{step.description}</p>
-            </div>
-            <div class="md:w-1/2">
-              <GlowPanel class="h-full p-6 border-tv7-cyan/20">
-                <div class="h-40 w-full rounded-xl border border-tv7-border bg-gradient-to-br from-tv7-cyan/10 via-tv7-bgSecondary to-tv7-violet/10 shadow-inner"></div>
-                <p class="mt-4 text-xs uppercase tracking-[0.2em] text-tv7-text-tertiary">Preview</p>
-                <p class="text-sm text-tv7-text-primary">Visual placeholder for {step.title} UI.</p>
-              </GlowPanel>
-            </div>
-          </div>
+        <GlowPanel class="p-6">
+          <p class="mb-3 text-xs font-semibold uppercase tracking-widest text-tv7-cyan">Step {idx + 1}</p>
+          <h3 class="mb-2 text-xl font-display font-semibold text-tv7-text-primary">{step.title}</h3>
+          <p class="text-sm text-tv7-text-secondary">{step.description}</p>
         </GlowPanel>
       ))}
     </div>
-  </SectionWrapper>
-
-  <SectionWrapper>
-    <SectionHeader
-      eyebrow="Pipeline"
-      title="AI-assisted pipeline"
-      description="A linear path keeps edits predictable and exports reliable."
-      align="center"
-    />
-    <GlowPanel class="p-6">
-      <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-        {[
-          { label: 'Input', detail: 'Long recording' },
-          { label: 'AI Analysis', detail: 'Hooks + transcript' },
-          { label: 'Clips', detail: 'Vertical & square' },
-          { label: 'Publish', detail: 'Queues & downloads' },
-        ].map((stage, idx, arr) => (
-          <div class="flex items-center gap-3 md:gap-4">
-            <div class="flex h-14 w-14 items-center justify-center rounded-2xl border border-tv7-cyan/30 bg-tv7-cyan/10 text-center text-xs font-semibold text-tv7-text-primary">
-              <div>
-                <p class="text-[10px] uppercase tracking-[0.25em] text-tv7-cyan">{stage.label}</p>
-                <p class="text-[11px] text-tv7-text-primary">{stage.detail}</p>
-              </div>
-            </div>
-            {idx < arr.length - 1 && (
-              <span class="hidden md:inline-block h-px w-16 bg-gradient-to-r from-tv7-cyan via-tv7-violet to-tv7-cyan"></span>
-            )}
-            {idx < arr.length - 1 && (
-              <span class="md:hidden inline-block h-px w-10 bg-gradient-to-r from-tv7-cyan via-tv7-violet to-tv7-cyan"></span>
-            )}
-          </div>
-        ))}
-      </div>
-    </GlowPanel>
   </SectionWrapper>
 </BaseLayout>

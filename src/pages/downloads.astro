@@ -2,53 +2,29 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionWrapper from '../components/SectionWrapper.astro';
 import SectionHeader from '../components/SectionHeader.astro';
-import DownloadCard from '../components/DownloadCard.astro';
 import GlowPanel from '../components/GlowPanel.astro';
-
-const downloads = [
-  { os: 'Windows', description: '64-bit, supports Windows 11 and Windows 10 (latest).', badge: 'v0.9 Beta' },
-  { os: 'macOS (Apple Silicon)', description: 'macOS 13 Ventura and above, tuned for M-series.', badge: 'Recommended' },
-  { os: 'Linux', description: 'Planned support. Join the waitlist to be notified.', badge: 'Coming soon', action: 'Join waitlist' },
-];
 ---
 
-<BaseLayout title="Downloads — TV7 Clip Studio" description="Get the latest TV7 desktop build for your OS.">
+<BaseLayout title="Development status — TV7" description="TV7 desktop is in development. There is no public installer yet.">
   <SectionWrapper>
-    <SectionHeader
-      eyebrow="Downloads"
-      title="Install TV7 on desktop"
-      description="Local-first clipping means everything runs on your machine. Choose your OS to get started."
-    />
-    <div class="grid gap-6 md:grid-cols-3">
-      {downloads.map((item) => (
-        <DownloadCard os={item.os} description={item.description} badge={item.badge} action={item.action ?? 'Download'} />
-      ))}
-    </div>
-  </SectionWrapper>
-
-  <SectionWrapper spacing="tight">
-    <SectionHeader
-      eyebrow="Setup"
-      title="Prepare your environment"
-      description="Recommended specs and first-run setup for smooth clipping sessions."
-    />
+    <SectionHeader eyebrow="Development status" title="Desktop release in progress" description="There is no public TV7 download yet. The current macOS package is an internal development proof, not a supported creator release." />
     <div class="grid gap-6 md:grid-cols-2">
       <GlowPanel class="p-6">
-        <h3 class="mb-3 text-xl font-display font-semibold text-tv7-text-primary">System requirements</h3>
-        <ul class="space-y-2 text-sm text-tv7-text-secondary">
-          <li>• 8GB RAM minimum (16GB recommended for batch clips)</li>
-          <li>• GPU acceleration preferred for caption rendering</li>
-          <li>• 2GB disk space for app + model cache</li>
-          <li>• Optional: internet for updates and sharing exports</li>
+        <h3 class="mb-3 text-xl font-display font-semibold text-tv7-text-primary">Working in the proof</h3>
+        <ul class="list-disc pl-5 space-y-2 text-sm text-tv7-text-secondary">
+          <li>One Studio interface for browser testing and a macOS Tauri package.</li>
+          <li>Local video import, WebVTT import, clip timing review, and local captioned MP4 render.</li>
+          <li>Optional private upload of a finished clip and a schedule draft.</li>
         </ul>
       </GlowPanel>
       <GlowPanel class="p-6">
-        <h3 class="mb-3 text-xl font-display font-semibold text-tv7-text-primary">Getting started</h3>
-        <ol class="list-decimal list-inside space-y-2 text-sm text-tv7-text-secondary">
-          <li>Install and open TV7, then drag your first recording into the workspace.</li>
-          <li>Pick a caption template and output formats (vertical, square, landscape).</li>
-          <li>Review AI-suggested highlights, adjust trims, and export to your queue.</li>
-        </ol>
+        <h3 class="mb-3 text-xl font-display font-semibold text-tv7-text-primary">Before public release</h3>
+        <ul class="list-disc pl-5 space-y-2 text-sm text-tv7-text-secondary">
+          <li>Package and sign the media dependencies; validate Windows.</li>
+          <li>Make transcription, editing, and import reliable for real creator libraries.</li>
+          <li>Verify platform account connections and actual scheduled publishing.</li>
+          <li>Finish licensing, storage billing, and support.</li>
+        </ul>
       </GlowPanel>
     </div>
   </SectionWrapper>

@@ -16,7 +16,7 @@ const { headline, subheadline, primaryLabel, secondaryLabel } = Astro.props as P
   <div class="relative grid gap-10 lg:grid-cols-2 lg:items-center">
     <div class="space-y-6">
       <div class="inline-flex items-center gap-2 rounded-full border border-tv7-amber/30 bg-tv7-amber/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-tv7-amber">
-        YouTube to social in minutes
+        Desktop studio in development
       </div>
       <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-semibold tracking-tight text-tv7-text-primary leading-tight">
         {headline}
@@ -39,11 +39,11 @@ const { headline, subheadline, primaryLabel, secondaryLabel } = Astro.props as P
       <div class="grid grid-cols-2 gap-4 max-w-lg">
         <div class="rounded-xl border-l-2 border-l-tv7-amber border-t border-r border-b border-tv7-border bg-tv7-surface/60 px-4 py-3">
           <p class="text-xs uppercase tracking-wider text-tv7-text-tertiary mb-1">Local-first</p>
-          <p class="text-tv7-text-primary font-semibold">Edge AI, no uploads</p>
+          <p class="text-tv7-text-primary font-semibold">Local media rendering</p>
         </div>
         <div class="rounded-xl border-l-2 border-l-tv7-amber border-t border-r border-b border-tv7-border bg-tv7-surface/60 px-4 py-3">
           <p class="text-xs uppercase tracking-wider text-tv7-text-tertiary mb-1">Creators & teams</p>
-          <p class="text-tv7-text-primary font-semibold">Clips ready in minutes</p>
+          <p class="text-tv7-text-primary font-semibold">Creator-reviewed clips</p>
         </div>
       </div>
     </div>
@@ -55,7 +55,7 @@ const { headline, subheadline, primaryLabel, secondaryLabel } = Astro.props as P
             <p class="text-tv7-text-primary font-semibold">Reel: Product Launch</p>
           </div>
           <span class="rounded-full bg-tv7-amber/15 px-3 py-1 text-xs font-semibold text-tv7-amber border border-tv7-amber/30">
-            Live
+            Concept
           </span>
         </div>
         <div class="aspect-[4/3] w-full overflow-hidden rounded-xl border-2 border-tv7-borderStrong bg-tv7-bg shadow-inner relative">
@@ -81,12 +81,10 @@ const { headline, subheadline, primaryLabel, secondaryLabel } = Astro.props as P
         </div>
         <div class="mt-5 flex items-center justify-between rounded-lg border border-tv7-borderStrong bg-tv7-bg/60 px-4 py-3">
           <div>
-            <p class="text-xs uppercase tracking-wider text-tv7-text-tertiary">AI highlight found</p>
+            <p class="text-xs uppercase tracking-wider text-tv7-text-tertiary">Selected clip range</p>
             <p class="text-tv7-text-primary font-semibold">00:12:44 → 00:13:58</p>
           </div>
-          <button class="btn-primary px-3 py-2 text-xs">
-            Export clip
-          </button>
+          <span class="rounded-full border border-tv7-border px-3 py-2 text-xs text-tv7-text-secondary">UI concept</span>
         </div>
       </GlowPanel>
     </div>

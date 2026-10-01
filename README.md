@@ -1,6 +1,6 @@
 # TV7 — Clip Studio Marketing Site
 
-Astro + Tailwind site for TV7, the AI-powered desktop app for video clipping and repurposing. Dark-only, neon-accent aesthetic with reusable components and data-driven sections.
+Astro + Tailwind marketing site for TV7, a local-first creator studio in development. The active pages distinguish the internal macOS/Tauri proof from planned public downloads, Windows support, automatic transcription, AI ranking, and social publishing.
 
 ## Quickstart
 
@@ -14,7 +14,7 @@ npm run preview
 ## Structure
 
 - `src/layouts/BaseLayout.astro` — global HTML shell with navbar/footer, dark mode enabled.
-- `src/components/` — Navbar, Hero, section helpers, cards (features, pricing, downloads, FAQ), glow panel.
+- `src/components/` — Navbar, Hero, section helpers, feature/FAQ cards, glow panel.
 - `src/pages/` — landing plus Features, How it Works, Pricing, Downloads, FAQ, Docs routes.
 - `src/styles/global.css` — Tailwind imports, Google Fonts (Orbitron + Inter), glow utilities.
 - `tailwind.config.js` — darkMode `class`, TV7 colors (`bg #00010A`, cyan `#00E5FF`, violet `#7A5CFF`, panel neutrals), fonts, glow shadows.

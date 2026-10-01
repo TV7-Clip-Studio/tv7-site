@@ -5,109 +5,28 @@ import SectionHeader from '../components/SectionHeader.astro';
 import FeatureCard from '../components/FeatureCard.astro';
 import GlowPanel from '../components/GlowPanel.astro';
 
-const featureGroups = [
-  {
-    label: 'Clipping Engine',
-    items: [
-      { title: 'Beat detection', description: 'Auto-detects high-energy beats, reactions, and speaker emphasis for perfect hooks.' },
-      { title: 'Moments map', description: 'Visualize peaks, pauses, and transitions to jump straight to the best seconds.' },
-      { title: 'Scene-aware cuts', description: 'Understands camera switches and screen shares to keep context intact.' },
-    ],
-  },
-  {
-    label: 'Timeline',
-    items: [
-      { title: 'Snappy trims', description: 'Fast scrubbing with frame-level accuracy and ripple-free edits.' },
-      { title: 'Templates', description: 'Reusable caption, lower-third, and overlay stacks for every client or channel.' },
-      { title: 'Versioning', description: 'Save variants for TikTok, Reels, and YouTube Shorts without rebuilding.' },
-    ],
-  },
-  {
-    label: 'Publishing',
-    items: [
-      { title: 'Social queues', description: 'Send exports directly to your scheduler or download locally.' },
-      { title: 'Caption burn-in', description: 'On-brand captions with drop shadows and safe-area guides baked in.' },
-      { title: 'Analytics-ready', description: 'Export clips with metadata for A/B testing titles and hooks.' },
-    ],
-  },
+const current = [
+  { title: 'Local import and render', description: 'Import a creator-supplied video and render a selected range with the local Rust Engine.' },
+  { title: 'Transcript-based review', description: 'Import WebVTT captions, inspect timing candidates, and adjust the selected range.' },
+  { title: 'Channel preselection', description: 'Discover videos from a channel and select them before confirming a download attempt.' },
+  { title: 'Optional cloud handoff', description: 'Explicitly upload a finished clip to private storage and create a schedule draft.' },
 ];
-
-const comparison = [
-  { label: 'Setup time', tv7: 'Minutes. No cloud uploads.', editors: 'Long installs, plug-ins, media management.' },
-  { label: 'Highlight discovery', tv7: 'AI pulls segments automatically.', editors: 'Manual scrubbing and markers.' },
-  { label: 'Captioning', tv7: 'One-click branded templates.', editors: 'Multiple exports and round-trips.' },
-  { label: 'Exports', tv7: 'Vertical, square, and landscape in one pass.', editors: 'One timeline at a time.' },
+const planned = [
+  { title: 'Reliable creator import', description: 'Rights-compliant imports and dependable bulk workflows for creator-owned libraries.' },
+  { title: 'Automatic transcription and ranking', description: 'Local transcription and useful clip suggestions that creators can review.' },
+  { title: 'Full editing and packaging', description: 'Durable project editing, bundled media tools, signed macOS builds, and Windows validation.' },
+  { title: 'Scheduled publishing', description: 'Verified account connections and publishing to YouTube, Instagram, and TikTok.' },
 ];
 ---
 
-<BaseLayout title="Features — TV7 Clip Studio" description="Explore TV7's AI clipping, captions, exports, and publishing pipeline.">
+<BaseLayout title="Features — TV7" description="Current TV7 development proof and planned creator features.">
   <SectionWrapper>
-    <SectionHeader
-      eyebrow="Features"
-      title="Deep controls, minimal friction"
-      description="Everything in TV7 is tuned for fast-turn clips without the heavyweight NLE overhead."
-      align="center"
-    />
-
-    <div class="space-y-8">
-      {featureGroups.map((group) => (
-        <div class="space-y-4">
-          <div class="flex items-center gap-3">
-            <span class="h-10 w-10 rounded-xl border border-tv7-cyan/40 bg-tv7-cyan/10 text-tv7-cyan flex items-center justify-center text-sm font-semibold">
-              {group.label.split(' ').map((word) => word[0]).join('')}
-            </span>
-            <h3 class="text-xl font-display font-semibold text-tv7-text-primary">{group.label}</h3>
-          </div>
-          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {group.items.map((item) => (
-              <FeatureCard title={item.title} description={item.description} />
-            ))}
-          </div>
-        </div>
-      ))}
-    </div>
+    <SectionHeader eyebrow="Current proof" title="What works today" description="These capabilities have been exercised in the internal development build." />
+    <div class="grid gap-4 sm:grid-cols-2">{current.map((item) => <FeatureCard title={item.title} description={item.description} />)}</div>
   </SectionWrapper>
-
   <SectionWrapper>
-    <SectionHeader
-      eyebrow="Comparison"
-      title="TV7 vs traditional editors"
-      description="A streamlined pipeline built for clipping and repurposing."
-    />
-    <GlowPanel class="overflow-hidden rounded-2xl p-0">
-      <div class="grid grid-cols-3 border-b border-tv7-border text-xs uppercase tracking-[0.2em] text-tv7-text-tertiary">
-        <div class="px-4 py-3">Aspect</div>
-        <div class="px-4 py-3 text-tv7-cyan">TV7</div>
-        <div class="px-4 py-3 text-tv7-text-primary">Traditional NLE</div>
-      </div>
-      {comparison.map((row, idx) => (
-        <div class={`grid grid-cols-3 text-sm ${idx !== comparison.length - 1 ? 'border-b border-tv7-border/70' : ''}`}>
-          <div class="px-4 py-3 text-tv7-text-secondary">{row.label}</div>
-          <div class="bg-tv7-cyan/5 px-4 py-3 text-tv7-text-primary">{row.tv7}</div>
-          <div class="px-4 py-3 text-tv7-text-tertiary">{row.editors}</div>
-        </div>
-      ))}
-    </GlowPanel>
-  </SectionWrapper>
-
-  <SectionWrapper spacing="tight">
-    <SectionHeader
-      eyebrow="Why it matters"
-      title="From raw footage to ready-to-post clips in one tool"
-      description="TV7 keeps everything on-device, automates repetitive work, and preserves pro-level editing control."
-      align="center"
-    />
-    <GlowPanel class="p-8 flex flex-col gap-4 items-start">
-      <p class="max-w-3xl text-tv7-text-secondary">
-        TV7 keeps everything on-device, automates the boring steps, and gives you the fast controls you expect from a pro
-        editor—without the overhead.
-      </p>
-      <a
-        href="/downloads"
-        class="btn-primary px-5 py-3 text-sm"
-      >
-        Download TV7
-      </a>
-    </GlowPanel>
+    <SectionHeader eyebrow="Roadmap" title="What we are building next" description="These are product goals, not released features." />
+    <div class="grid gap-4 sm:grid-cols-2">{planned.map((item) => <FeatureCard title={item.title} description={item.description} />)}</div>
+    <GlowPanel class="mt-8 p-6"><a href="/downloads" class="font-semibold text-tv7-cyan hover:text-tv7-cyanSoft">See release status →</a></GlowPanel>
   </SectionWrapper>
 </BaseLayout>

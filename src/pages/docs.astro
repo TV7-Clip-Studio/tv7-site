@@ -5,68 +5,24 @@ import SectionHeader from '../components/SectionHeader.astro';
 import GlowPanel from '../components/GlowPanel.astro';
 ---
 
-<BaseLayout title="Docs — TV7 Clip Studio" description="Get started with TV7, shortcuts, clipping tips, and troubleshooting.">
+<BaseLayout title="Docs — TV7" description="Current documentation for the TV7 development proof.">
   <SectionWrapper>
-    <SectionHeader
-      eyebrow="Docs"
-      title="TV7 documentation"
-      description="Get set up fast, learn the shortcuts, and keep clipping efficiently."
-      align="center"
-    />
-    <GlowPanel class="p-6">
-      <h3 class="mb-3 text-lg font-display font-semibold text-tv7-text-primary">Jump to a section</h3>
-      <div class="flex flex-wrap gap-3 text-sm text-tv7-cyan">
-        <a href="#installation" class="hover:text-tv7-violet transition">Installation</a>
-        <a href="#shortcuts" class="hover:text-tv7-violet transition">Shortcuts</a>
-        <a href="#clipping" class="hover:text-tv7-violet transition">Clipping Tips</a>
-        <a href="#troubleshooting" class="hover:text-tv7-violet transition">Troubleshooting</a>
-      </div>
-    </GlowPanel>
-  </SectionWrapper>
-
-  <SectionWrapper id="installation" spacing="tight">
-    <SectionHeader title="Installation" />
-    <GlowPanel class="p-6">
-      <p class="mb-3 text-sm text-tv7-text-secondary">Download the latest build from the Downloads page.</p>
-      <pre class="overflow-x-auto rounded-xl border border-tv7-border bg-tv7-bgSecondary p-4 text-sm text-tv7-text-secondary">
-macOS: drag TV7 into Applications
-Windows: run the installer and follow the prompts</pre>
-      <p class="mt-2 text-sm text-tv7-text-tertiary">Tip: Allow GPU access for fastest exports and caption rendering.</p>
-    </GlowPanel>
-  </SectionWrapper>
-
-  <SectionWrapper id="shortcuts" spacing="tight">
-    <SectionHeader title="Shortcuts" />
-    <GlowPanel class="p-6">
-      <ul class="space-y-2 text-sm text-tv7-text-secondary">
-        <li><span class="font-semibold text-tv7-cyan">Space</span> — Play / pause</li>
-        <li><span class="font-semibold text-tv7-cyan">J / K / L</span> — Shuttle playback</li>
-        <li><span class="font-semibold text-tv7-cyan">M</span> — Add marker</li>
-        <li><span class="font-semibold text-tv7-cyan">Shift + S</span> — Create new clip from selection</li>
-        <li><span class="font-semibold text-tv7-cyan">Cmd/Ctrl + E</span> — Export selected clips</li>
-      </ul>
-    </GlowPanel>
-  </SectionWrapper>
-
-  <SectionWrapper id="clipping" spacing="tight">
-    <SectionHeader title="Clipping tips" />
-    <GlowPanel class="p-6">
-      <ul class="space-y-2 text-sm text-tv7-text-secondary">
-        <li>Start with the AI highlight suggestions, then tighten intros to 1.5 seconds.</li>
-        <li>Use templates to keep captions on-brand across every export format.</li>
-        <li>Duplicate clips to test multiple hooks and captions before publishing.</li>
-      </ul>
-    </GlowPanel>
-  </SectionWrapper>
-
-  <SectionWrapper id="troubleshooting" spacing="tight">
-    <SectionHeader title="Troubleshooting" />
-    <GlowPanel class="p-6">
-      <ul class="space-y-2 text-sm text-tv7-text-secondary">
-        <li>If exports stall, lower the concurrent renders in Settings → Performance.</li>
-        <li>Audio drift? Enable resync in Settings → Audio to re-lock to waveforms.</li>
-        <li>Running hot? Cap GPU usage and close background apps while exporting.</li>
-      </ul>
-    </GlowPanel>
+    <SectionHeader eyebrow="Docs" title="Development proof guide" description="TV7 is not available as a supported public download yet. This describes the current internal workflow." align="center" />
+    <div class="grid gap-6 md:grid-cols-2">
+      <GlowPanel class="p-6">
+        <h3 class="mb-3 text-lg font-display font-semibold text-tv7-text-primary">Local clip</h3>
+        <ol class="list-decimal pl-5 space-y-2 text-sm text-tv7-text-secondary">
+          <li>Import a creator-supplied video file.</li>
+          <li>Import a WebVTT caption file for that video.</li>
+          <li>Select and adjust a timing candidate.</li>
+          <li>Render a captioned MP4 locally.</li>
+        </ol>
+      </GlowPanel>
+      <GlowPanel class="p-6">
+        <h3 class="mb-3 text-lg font-display font-semibold text-tv7-text-primary">Optional cloud draft</h3>
+        <p class="text-sm text-tv7-text-secondary">After reviewing the rendered clip, explicitly choose to upload it to private Backend storage and create a schedule draft. A draft does not publish to any social network.</p>
+      </GlowPanel>
+    </div>
+    <p class="mt-6 text-sm text-tv7-text-tertiary">Automatic transcription, full editing controls, public installers, and live publishing are still being developed.</p>
   </SectionWrapper>
 </BaseLayout>

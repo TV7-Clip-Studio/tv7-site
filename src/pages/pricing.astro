@@ -2,52 +2,15 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionWrapper from '../components/SectionWrapper.astro';
 import SectionHeader from '../components/SectionHeader.astro';
-import PricingCard from '../components/PricingCard.astro';
-
-const plans = [
-  {
-    name: 'Free',
-    price: '$0',
-    description: 'Try clipping locally with limited exports.',
-    features: ['Local processing', '5 clips / month', 'Basic captions', 'Watermarked exports'],
-  },
-  {
-    name: 'Creator',
-    price: '$19',
-    description: 'Everything you need to clip and publish weekly.',
-    features: ['Unlimited clipping', 'Branded caption templates', 'Social-ready exports', 'Priority model updates'],
-    highlighted: true,
-  },
-  {
-    name: 'Studio',
-    price: 'TBD',
-    description: 'For teams, agencies, and batch pipelines.',
-    features: ['Multi-seat access', 'Shared style presets', 'Scheduler integrations', 'White-label exports'],
-  },
-];
+import GlowPanel from '../components/GlowPanel.astro';
 ---
 
-<BaseLayout title="Pricing — TV7 Clip Studio" description="Pick the TV7 plan that fits your clipping workflow.">
+<BaseLayout title="Pricing — TV7" description="TV7 pricing is not available while the desktop product is in development.">
   <SectionWrapper>
-    <SectionHeader
-      eyebrow="Pricing"
-      title="Choose your pace"
-      description="Start free, upgrade when you need team workflows and publishing power."
-      align="center"
-    />
-    <div class="grid gap-6 md:grid-cols-3">
-      {plans.map((plan) => (
-        <PricingCard
-          name={plan.name}
-          price={plan.price}
-          description={plan.description}
-          features={plan.features}
-          highlighted={plan.highlighted}
-        />
-      ))}
-    </div>
-    <div class="mt-6 text-center text-sm text-tv7-text-tertiary">
-      Prices shown in USD. Studio pricing final after onboarding and workflow review.
-    </div>
+    <SectionHeader eyebrow="Pricing" title="Pricing is not set" description="TV7 has no public plans or checkout yet. We are validating the local creator workflow and cloud scheduling before setting prices." align="center" />
+    <GlowPanel class="p-8">
+      <p class="text-tv7-text-secondary">The intended model keeps CPU-heavy media work on your computer. Cloud storage and scheduled publishing may carry a small fee once those services are released.</p>
+      <a href="/downloads" class="mt-5 inline-flex text-tv7-cyan hover:text-tv7-cyanSoft font-semibold">See development status →</a>
+    </GlowPanel>
   </SectionWrapper>
 </BaseLayout>
