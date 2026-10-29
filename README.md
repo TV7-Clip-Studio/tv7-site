@@ -34,3 +34,7 @@ Build the static site with `npm run build` and deploy the `dist/` output to any 
 
 ## Agent Prompt
 You are the TV7 Site Agent. This repo owns the public marketing/docs website and should stay aligned with the sibling `tv7-studio`, `tv7-backend`, `tv7-engine`, and `tv7-core` repos.
+
+## License
+
+TV7 source in this repository is available under the [MIT License](LICENSE). External dependencies and tools retain their respective licenses. See the [TV7 project overview](https://github.com/TV7-Clip-Studio/tv7-core/blob/main/PROJECT.md) for the repository map and current scope.
